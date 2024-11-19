@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -12,8 +13,9 @@ import { AuthModule } from './auth/auth.module';
     }),
     UsersModule,
     AuthModule,
+    TasksModule,
     MongooseModule.forRoot(
-      `mongodb+srv://${process.env.DBUSER}:${process.env.DB_PASS}@cluster0.wok38ui.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
+      `mongodb+srv://${process.env.DBUSER}:${process.env.DB_PASS}@cluster0.wok38ui.mongodb.net/devs?retryWrites=true&w=majority&appName=Cluster0`,
       {},
     ),
   ],
